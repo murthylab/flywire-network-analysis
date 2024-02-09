@@ -5,6 +5,8 @@ Preprint: Lin, Yang et al. 2023, "Network Statistics of the Whole-Brain Connecto
 
 Data exports of the Flywire connectome are hosted at https://codex.flywire.ai/api/download
 
+Full code documentation WIP
+
 # Credits
 Albert Lin, Runzhe Yang, Sven Dorkenwald
 
