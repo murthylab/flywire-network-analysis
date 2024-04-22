@@ -2,6 +2,7 @@
 This repository contains analysis scripts for the network analyses of the Flywire connectome. 
 
 Network Paper Preprint: Lin, Yang et al. 2023, "Network Statistics of the Whole-Brain Connectome of Drosophila" (https://www.biorxiv.org/content/10.1101/2023.07.29.551086v2)
+
 Data Paper Preprint: Dorkenwald et al. 2023, "Neuronal wiring diagram of an adult brain" (https://www.biorxiv.org/content/10.1101/2023.06.27.546656v2)
 
 Data exports of the Flywire connectome are hosted at https://codex.flywire.ai/api/download. The analyses in the paper were conducted with the v630 snapshot of the Flywire connectome.
