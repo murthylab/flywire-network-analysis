@@ -1,13 +1,12 @@
 % Using codex data format (Albert Lin)
-directory = 'C:\Users\alber\Dropbox\AL Murthy Lab\FlyWire Data';
-% mac
-% directory = '/Users/Albert/Dropbox/AL Murthy Lab/FlyWire Data';
+directory = 'DIRECTORY';
+
 cd(directory)
 
 %% load data from csvs
 % neurons in neurons.csv and neuropil synapse table are in the same order,
 % thresholded
-data_directory = 'C:\Users\alber\Dropbox\AL Murthy Lab\FlyWire Data\Arie Data exports\630';
+data_directory = 'DATA DIRECTORY';
 
 opts = detectImportOptions(fullfile(data_directory,'neurons.csv'));
 disp([opts.VariableNames' opts.VariableTypes'])
@@ -24,14 +23,14 @@ opts2 = setvartype(opts2,{'root_id'},'int64');
 T_np = readtable(fullfile(data_directory,'neuropil_synapse_table.csv'),opts2); 
 
 %% load colors from spreadsheet
-np_color_import = readcell('Amy neuropil color key.xlsx','Sheet','nps','Range','A2:C79');
+np_color_import = readcell('neuropil color key.xlsx','Sheet','nps','Range','A2:C79');
 np_ordered = np_color_import(:,1);
 np_hex_colors = np_color_import(:,2);
 np_names = np_color_import(:,3);
 
-nt_hex_colors = readcell('Amy neuropil color key.xlsx','Sheet','nts','Range','B1:B6');
+nt_hex_colors = readcell('neuropil color key.xlsx','Sheet','nts','Range','B1:B6');
 
-superclass_import = readcell('Amy neuropil color key.xlsx','Sheet','superclasses','Range','A2:B12');
+superclass_import = readcell('neuropil color key.xlsx','Sheet','superclasses','Range','A2:B12');
 superclasses = superclass_import(:,1);
 superclass_hex_colors = superclass_import(:,2);
 
@@ -94,23 +93,6 @@ end
 % these variables got moved to another sheet
 %flow = table2array(T_n(:,12));
 %classes = table2array(T_n(:,13));
-
-%% load KC list for overwrite (don't need this anymore for 630)
-% load KC file
-data_directory_3 = 'C:\Users\alber\Dropbox\AL Murthy Lab\FlyWire Data\python_571';
-opts4 = detectImportOptions(fullfile(data_directory_3,'KC_list_571.csv'));
-disp([opts4.VariableNames' opts4.VariableTypes'])
-
-opts4 = setvartype(opts4,{'Var2'},'int64');
-
-T_KC = readtable(fullfile(data_directory_3,'KC_list_571.csv'),opts4); 
-KC_list = table2array(T_KC(2:end,2));
-
-% Overwrite KCs to ach
-[vals,idxs]=intersect(neuron_IDs,KC_list);
-
-out_nts(idxs) = {'ACH'};
-
 
 
 %% determine neuron fractions by degree
@@ -215,7 +197,7 @@ set(gcf,'renderer','Painters')
 
 %% load reciprocal lists
 % load KC file
-data_directory_rc = 'C:\Users\alber\Dropbox\AL Murthy Lab\FlyWire Data\630_csvs\';
+data_directory_rc = 'DATA DIRECTORY';
 opts_allpairs = detectImportOptions(fullfile(data_directory_rc,'v630-all-reciprocal-pairs-s1.csv'));
 disp([opts_allpairs.VariableNames' opts_allpairs.VariableTypes'])
 
@@ -227,7 +209,7 @@ rc_ns = table2array(T_rc(1:end,1:2));
 
 %% distributions of numbers of neurons participating in recurrent connections
 
-output_dir = 'C:\Users\alber\Dropbox\AL Murthy Lab\FlyWire Data\reciprocity_plots';
+output_dir = 'OUTPUT DIRECTORY';
 
 rc_ns_reshape = reshape(rc_ns,[],1);
 [unique_rns,ia,ic] = unique(rc_ns_reshape);
@@ -539,7 +521,7 @@ set(gcf,'renderer','Painters')
 saveas(gcf,strcat(output_dir,'\in_vs_out_deg_rec_lin'),'epsc')
 saveas(gcf,strcat(output_dir,'\in_vs_out_deg_rec_lin'),'png')
 
-%% try scatterplot of recurrence x 2 vs total degree
+%% scatterplot of recurrence x 2 vs total degree
 f = figure;
 
 error_filter = (rc_ns_in_degree+rc_ns_out_degree) >= rconns_ordered*2;
@@ -586,7 +568,7 @@ saveas(gcf,strcat(output_dir,'\deg_vs_rec'),'png')
 rc_ns_intrinsic_filter = strcmp(rc_ns_flow,'intrinsic');
 
 sum((rc_ns_in_degree(rc_ns_intrinsic_filter)+rc_ns_out_degree(rc_ns_intrinsic_filter))/2 < rconns_ordered(rc_ns_intrinsic_filter)*2)
-%% try scatterplot of recurrence x 2 vs total degree by neurotransmitter
+%% scatterplot of recurrence x 2 vs total degree by neurotransmitter
 f = figure;
 
 error_filter = (rc_ns_in_degree+rc_ns_out_degree) >= rconns_ordered*2;
@@ -630,7 +612,7 @@ saveas(gcf,strcat(output_dir,'\deg_vs_rec_allnt'),'svg')
 
 saveas(gcf,strcat(output_dir,'\deg_vs_rec_allnt'),'png')
 
-%% try scatterplot of recurrence x 2 vs total degree by individual neurotransmitter
+%% scatterplot of recurrence x 2 vs total degree by individual neurotransmitter
 f = figure;
 
 error_filter = (rc_ns_in_degree+rc_ns_out_degree) >= rconns_ordered*2;
@@ -846,7 +828,6 @@ saveas(gcf,strcat(output_dir,strcat('\tiling_reciprocal_neurons_bar')),'png')
 %% PRINT THESE AS CSV
 
 %%
-% figure out how to pull root IDs
 neuropil = "LO_R";
 % find neurons associated with this neuropil
 np_idx = find(strcmp(unique_high_internal_nps,neuropil));
@@ -900,8 +881,6 @@ set(gcf,'renderer','Painters')
 
 saveas(gcf,strcat(output_dir,'\internal_nt'),'epsc')
 saveas(gcf,strcat(output_dir,'\internal_nt'),'png')
-
-%% TO DO: look at specific nt pairs
 
 
 %% apply filters using flow and classes
@@ -1570,7 +1549,3 @@ saveas(gcf,strcat(output_dir,'\richclub_outputs'),'png')
 % print examples of rich club neurons that are balanced, integrators, or
 % broadcasters (6, plus more in supplement?)
 %try visualizing all broadcasters and all integrators
-
-%% identify top 10 integrate neurons by in-degree
-
-%% identify top 10 broadcast neurons by out-degree

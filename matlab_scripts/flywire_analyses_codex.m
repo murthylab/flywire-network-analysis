@@ -1,13 +1,12 @@
-% Using codex data format (Albert Lin)
-directory = 'C:\Users\alber\Dropbox\AL Murthy Lab\FlyWire Data';
-% mac
-% directory = '/Users/Albert/Dropbox/AL Murthy Lab/FlyWire Data';
+% Analyses using the codex data format (Albert Lin)
+directory = 'DIRECTORY';
+
 cd(directory)
 
 %% load data from csvs
 % neurons in neurons.csv and neuropil synapse table are in the same order,
 % thresholded
-data_directory = 'C:\Users\alber\Dropbox\AL Murthy Lab\FlyWire Data\Arie Data exports\630';
+data_directory = 'DATA_DIRECTORY';
 
 opts = detectImportOptions(fullfile(data_directory,'neurons.csv'));
 disp([opts.VariableNames' opts.VariableTypes'])
@@ -24,7 +23,7 @@ opts2 = setvartype(opts2,{'root_id'},'int64');
 T_np = readtable(fullfile(data_directory,'neuropil_synapse_table.csv'),opts2); 
 
 %% load colors from spreadsheet
-np_color_import = readcell('Amy neuropil color key.xlsx','Sheet','nps','Range','A2:C79');
+np_color_import = readcell('neuropil color key.xlsx','Sheet','nps','Range','A2:C79');
 np_ordered = np_color_import(:,1);
 np_hex_colors = np_color_import(:,2);
 np_names = np_color_import(:,3);
@@ -73,21 +72,6 @@ for i = 1:length(neuron_IDs)
 out_nts{i} = out_nts_T_n{idx};
 end
 
-%% load KC list for overwrite NOT for 630
-% load KC file
-data_directory_3 = 'C:\Users\alber\Dropbox\AL Murthy Lab\FlyWire Data\python_571';
-opts4 = detectImportOptions(fullfile(data_directory_3,'KC_list_571.csv'));
-disp([opts4.VariableNames' opts4.VariableTypes'])
-
-opts4 = setvartype(opts4,{'Var2'},'int64');
-
-T_KC = readtable(fullfile(data_directory_3,'KC_list_571.csv'),opts4); 
-KC_list = table2array(T_KC(2:end,2));
-
-%% Overwrite KCs to ach
-[vals,idxs]=intersect(neuron_IDs,KC_list);
-
-out_nts(idxs) = {'ACH'};
 %% fractional projectome
 % compute fraction neurons incoming/outgoing for each neuron
 % make matrix: neuron x incoming fraction, neuron x outgoing fraction
@@ -189,11 +173,9 @@ for i = 1:length(np_ordered) % row
     end
 end
 
-%% print all neurons projecting to each neuropil even in part SKIP THESE
-% for winner-take-all use flywire_analyses_nt code
-% projecting to means outputs point to this neuropil
+%% print all neurons projecting to each neuropil even in part
 
-np_csv_folder = fullfile(directory,'neuropil_fractional_csvs_571\');
+np_csv_folder = fullfile(directory,'neuropil_fractional_csvs\');
 mkdir(np_csv_folder)
 
 project_to_neuron_num = zeros(size(all_regions));
@@ -744,7 +726,7 @@ close all
 
 end
 
-%% ach gaba glut combining colors WIP
+%% ach gaba glut combining colors
 
 rgb_matrix = zeros(size(ordered_project_to_matrix_syn_nt(:,:,1:3)));
 % rgb
