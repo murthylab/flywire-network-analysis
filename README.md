@@ -11,6 +11,10 @@ Data exports of the Flywire connectome are hosted at https://codex.flywire.ai/ap
 
 Tony's scripts WIP
 
+**Rank_analysis.ipynb** contains the following analyses: relative rank of rich club neuron populations to different sensory inputs, scatterplots comparing relative rank to multiple modalities
+
+**reciprocal_space.ipynb** contains the following analyses: inter-neuropil neciprocal projectome matrices
+
 **utils & flywireconnectome_utils** contain secondary scripts called in the Python notebooks.
 
 ## MATLAB Scripts
@@ -19,7 +23,7 @@ Tony's scripts WIP
 **flywire_reciprocal_connectivity.m** contains the following analyses: degree scatterplots, distributions of reciprocal connections and reciprocal degree, reciprocity by neurotransmitter, relative reciprocal degree heatmaps, neuropil-specific highly reciprocal neurons, identifying integrators and broadcasters, characterize properties (cell type, neurotransmitter, etc) of integrators, broadcasters, and rich club neurons
 
 ## Data Products
-This folder contains data outputs not found on Codex, including the color pallettes used for neuropils, neurotransmitters, and cell types, the list of all reciprocal pairs in v630, and the ranks of neurons from sensory inputs.
+This folder contains data outputs not found on Codex, including the color pallettes used for neuropils, neurotransmitters, and cell types, neuron root_ID lists for various neuron populations, the root_ID list of all reciprocal pairs in v630, and the ranks of neurons from sensory inputs.
 
 ## Credits
 Albert Lin, Runzhe Yang, Sven Dorkenwald
