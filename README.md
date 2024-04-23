@@ -9,7 +9,12 @@ Data exports of the Flywire connectome are hosted at https://codex.flywire.ai/ap
 
 ## Python Scripts
 
-Tony's scripts WIP
+ - **[FlywireAnalysis/v630-Animal-Comparison.ipynb](python_scripts/FlywireAnalysis/v630-Animal-Comparison.ipynb)**: network definition, synapse and degree distribution, strong and weak connected components, edge percolation, edge reciprocity, clustering coefficient, shortest path, small-world-ness
+ - **[FlywireAnalysis/v630-Motif-Analysis.ipynb](python_scripts/FlywireAnalysis/v630-Motif-Analysis.ipynb)**: Motif frequency and strengh distribution.
+ - **[FlywireAnalysis/v630-Proximity-Model.ipynb](python_scripts/FlywireAnalysis/v630-Proximity-Model.ipynb)**: Connection probability vs neuron presynapse-postsynapse distance.
+ - **[FlywireAnalysis/v630-Rich-Club.ipynb](python_scripts/FlywireAnalysis/v630-Rich-Club.ipynb)**: Rich-club analysis with a configuration model and a neuropil-constrained null model.
+ - **[FlywireAnalysis/v630-Spectral-Properties.ipynb](python_scripts/FlywireAnalysis/v630-Spectral-Properties.ipynb)**: Random walk and spectral properties.
+ - **[FlywireAnalysis/v630-Animal-Comparison.ipynb](python_scripts/FlywireAnalysis/v630-Animal-Comparison.ipynb)**: Compare network statistics across animals. 
 
 **Rank_analysis.ipynb** contains the following analyses: relative rank of rich club neuron populations to different sensory inputs, scatterplots comparing relative rank to multiple modalities
 
