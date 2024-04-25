@@ -15,13 +15,13 @@ Data exports of the Flywire connectome are hosted at https://codex.flywire.ai/ap
  - **[FlywireAnalysis/v630-Rich-Club.ipynb](python_scripts/FlywireAnalysis/v630-Rich-Club.ipynb)**: Rich-club analysis with a configuration (CFG) model and a neuropil connection (NPC) null model
  - **[FlywireAnalysis/v630-Spectral-Properties.ipynb](python_scripts/FlywireAnalysis/v630-Spectral-Properties.ipynb)**: Random walk and spectral properties
  - **[FlywireAnalysis/v630-Animal-Comparison.ipynb](python_scripts/FlywireAnalysis/v630-Animal-Comparison.ipynb)**: Compute and network statistics across existing wiring diagrams from different animals
- - **[Rank_analysis.ipynb](python_scripts/Rank_analysis.ipynb)** contains the following analyses: relative rank of rich club neuron populations to different sensory inputs, scatterplots comparing relative rank to multiple modalities
- - **[reciprocal_space.ipynb](python_scripts/reciprocal_space.ipynb)** contains the following analyses: inter-neuropil neciprocal projectome matrices
+ - **[Rank_analysis.ipynb](python_scripts/Rank_analysis.ipynb)**: relative rank of rich club neuron populations to different sensory inputs, scatterplots comparing relative rank to multiple modalities
+ - **[reciprocal_space.ipynb](python_scripts/reciprocal_space.ipynb)**: inter-neuropil neciprocal projectome matrices
  - **utils & flywireconnectome_utils** contain secondary scripts called in the Python notebooks.
 
 ## MATLAB Scripts
- - **[flywire_analyses_codex.m](matlab_scripts/flywire_analyses_codex.m)** contains the following analyses: fractional neuropil projectomes, internal and external neuropil fractions, neuropil fractions by putative neurotransmitter
- - **[flywire_reciprocal_connectivity.m](matlab_scripts/flywire_reciprocal_connectivity.m)** contains the following analyses: degree scatterplots, distributions of reciprocal connections and reciprocal degree, reciprocity by neurotransmitter, relative reciprocal degree heatmaps, neuropil-specific highly reciprocal neurons, identifying integrators and broadcasters, characterize properties (cell type, neurotransmitter, etc) of integrators, broadcasters, and rich club neurons
+ - **[flywire_analyses_codex.m](matlab_scripts/flywire_analyses_codex.m)**: fractional neuropil projectomes, internal and external neuropil fractions, neuropil fractions by putative neurotransmitter
+ - **[flywire_reciprocal_connectivity.m](matlab_scripts/flywire_reciprocal_connectivity.m)**: degree scatterplots, distributions of reciprocal connections and reciprocal degree, reciprocity by neurotransmitter, relative reciprocal degree heatmaps, neuropil-specific highly reciprocal neurons, identifying integrators and broadcasters, characterize properties (cell type, neurotransmitter, etc) of integrators, broadcasters, and rich club neurons
 
 ## Data Products
 This folder contains data outputs not found on Codex, including the color pallettes used for neuropils, neurotransmitters, and cell types, neuron root_ID lists for various neuron populations, the root_ID list of all reciprocal pairs in v630, and the ranks of neurons from sensory inputs.
