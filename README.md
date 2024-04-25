@@ -15,8 +15,7 @@ Data exports of the Flywire connectome are hosted at https://codex.flywire.ai/ap
  - **[FlywireAnalysis/v630-Rich-Club.ipynb](python_scripts/FlywireAnalysis/v630-Rich-Club.ipynb)**: Rich-club analysis with a configuration (CFG) model and a neuropil connection (NPC) null model
  - **[FlywireAnalysis/v630-Spectral-Properties.ipynb](python_scripts/FlywireAnalysis/v630-Spectral-Properties.ipynb)**: Random walk and spectral properties
  - **[FlywireAnalysis/v630-Animal-Comparison.ipynb](python_scripts/FlywireAnalysis/v630-Animal-Comparison.ipynb)**: Compute and network statistics across existing wiring diagrams from different animals
-
-**Rank_analysis.ipynb** contains the following analyses: relative rank of rich club neuron populations to different sensory inputs, scatterplots comparing relative rank to multiple modalities
+ - **[Rank_analysis.ipynb](python_scripts/Rank_analysis.ipynb)** contains the following analyses: relative rank of rich club neuron populations to different sensory inputs, scatterplots comparing relative rank to multiple modalities
 
 **reciprocal_space.ipynb** contains the following analyses: inter-neuropil neciprocal projectome matrices
 
