@@ -7,6 +7,8 @@ Data Paper Preprint: Dorkenwald et al. 2023, "Neuronal wiring diagram of an adul
 
 Data exports of the Flywire connectome are hosted at https://codex.flywire.ai/api/download. The analyses in the paper were conducted with the v630 snapshot of the Flywire connectome.
 
+Some Python scripts employ the graphtool package, which only runs on Linux/Mac architectures. Many scripts were run on computational cluster due to the large memory requirements.
+
 ## Python Scripts
 
  - **[FlywireAnalysis/v630-Animal-Comparison.ipynb](python_scripts/FlywireAnalysis/v630-Animal-Comparison.ipynb)**: network definition, synapse and degree distributions, strong and weak connected component analyses, edge percolation, edge reciprocity, clustering coefficient, shortest path, small-world-ness
